@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gizmo</title>
+</head>
+
+<body>
+  <h1>Usage example</h1>
+
+  <p>If everything is configured correctly, you should see several greetings below:</p>
+
+  <!--
+  Placeholder for the widget, anywhere on the page.
+  -->
+  <div id="gizmo-demo-widget"></div>
+
+  <!--
+  The same widget may appear multiple times on a page, but each will need a
+  unique "id" attribute. For this to work, your widget should have an option
+  like "containerId" (the name is your choice) to determine where to render
+  the content of the widget.
+  -->
+  <div id="gizmo-demo-widget-2"></div>
+
+  <hr>
+
+  <div id="gizmo-demo-react-widget"></div>
+  <div id="gizmo-demo-react-widget-2"></div>
+
+  <hr>
+
+  <div id="gizmo-demo-react-alt-widget"></div>
+  <div id="gizmo-demo-react-alt-widget-2"></div>
+
+  <!-- Widget snippet -->
+  <script>
+    (function (d, s, id) {
+      /*
+      The name of the function below is based on the "name" of the widget as
+      registered by the loader.js file and will be run as soon as that file is
+      loaded.
+      */
+      window.gizmoDemoAsyncInit = function () {
+        /*
+        Typically, the body of this function will start the widget with
+        the desired options, but this is not necessary. If the widget
+        does not need to be started immediately, you may instead notify
+        your own code that the widget is now ready to be run, and only
+        call the "start" function when needed.
+
+        The global gizmo.widget object is created or reused (to allow
+        multiple widgets) when you call the "register" function of the
+        SDK in your loader.js file.
+        The "demo" part of this function is up to you and is defined
+        upon registration using the "name" option.
+
+        The "start" function triggers the download of the necessary JS and CSS
+        files and the widget will be rendered as soon as those downloads finish.
+        */
+
+        // example with default options
+        gizmo.widget.demo.start();
+
+        // example with custom options
+        gizmo.widget.demo.start({
+          containerId: 'gizmo-demo-widget-2',
+          name: 'gizmo'
+        });
+      };
+
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+
+      /*
+      The loader can be hosted anywhere like s3 and served up via a CDN like Cloudfront.
+      */
+      js.src = '/dist/demo.loader.js';
+      fjs.parentNode.insertBefore(js, fjs);
+
+      /*
+      In the line below, 'demo-loader' is an arbitrary string that will be used
+      to prevent the loader from running multiple times if this snippet is
+      accidentally included on the page more than once.
+      */
+    })(document, 'script', 'demo-loader');
+  </script>
+
+  <script>
+    (function (d, s, id) {
+      window.gizmoDemoReactAsyncInit = function () {
+        gizmo.widget.demoReact.start();
+
+        gizmo.widget.demoReact.start({
+          containerId: 'gizmo-demo-react-widget-2',
+          name: 'gizmo'
+        });
+      };
+
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+
+      js.src = '/dist/demo-react.loader.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'demo-react-loader');
+  </script>
+
+  <script>
+    (function (d, s, id) {
+      window.gizmoDemoReactAltAsyncInit = function () {
+        gizmo.widget.demoReactAlt.start();
+
+        gizmo.widget.demoReactAlt.start({
+          containerId: 'gizmo-demo-react-alt-widget-2',
+          name: 'gizmo'
+        });
+      };
+
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+
+      js.src = '/dist/demo-react-alt.loader.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'demo-react-alt-loader');
+  </script>
+</body>
+
+</html>

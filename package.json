@@ -1,0 +1,73 @@
+{
+  "name": "@helix-collective/gizmo",
+  "version": "1.0.0",
+  "description": "A widget loader.",
+  "main": "dist/gizmo.js",
+  "module": "src/sdk.js",
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "start": "serve .",
+    "clean": "rm -rf dist/",
+    "build:sdk": "webpack",
+    "watch:sdk": "yarn run build:sdk --watch",
+    "build:demo-loader": "webpack --config src/demoWidget/loader.webpack.config.js",
+    "build:demo-widget": "webpack --config src/demoWidget/widget.webpack.config.js",
+    "watch:demo-loader": "yarn run build:demo-loader --watch",
+    "watch:demo-widget": "yarn run build:demo-widget --watch",
+    "build:demo-react-loader": "webpack --config src/demoWidgetReact/loader.webpack.config.js",
+    "build:demo-react-widget": "webpack --config src/demoWidgetReact/widget.webpack.config.js",
+    "watch:demo-react-loader": "yarn run build:demo-react-loader --watch",
+    "watch:demo-react-widget": "yarn run build:demo-react-widget --watch",
+    "build:demo-react-alt-loader": "webpack --config src/demoWidgetReactAlt/loader.webpack.config.js",
+    "build:demo-react-alt-widget": "webpack --config src/demoWidgetReactAlt/widget.webpack.config.js",
+    "watch:demo-react-alt-loader": "yarn run build:demo-react-alt-loader --watch",
+    "watch:demo-react-alt-widget": "yarn run build:demo-react-alt-widget --watch",
+    "build:combined-loader": "webpack --config src/combinedWidget/loader.webpack.config.js",
+    "build:combined-widget": "webpack --config src/combinedWidget/widget.webpack.config.js",
+    "watch:combined-loader": "yarn run build:combined-loader --watch",
+    "watch:combined-widget": "yarn run build:combined-widget --watch",
+    "build:bodymovin-loader": "webpack --config src/bodymovin/loader.webpack.config.js",
+    "watch:bodymovin-loader": "yarn run build:bodymovin-loader --watch",
+    "build": "yarn run clean && run-p build:*",
+    "watch": "yarn run clean && run-p watch:*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "authors": "Helix Collective <hello@helixcollective.com>",
+  "contributors": [
+    {
+      "name": "Javier Cejudo",
+      "email": "javier@helixta.com.au",
+      "url": "https://github.com/javiercejudo"
+    },
+    {
+      "name": "Jaie Wilson",
+      "email": "jaiew@helixta.com.au",
+      "url": "https://github.com/jaiew"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "fg-loadcss": "^2.0.1",
+    "loadjs": "^3.5.4",
+    "preact": "^10.5.3",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-transform-react-jsx": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^4.3.0",
+    "npm-run-all": "^4.1.3",
+    "serve": "^11.3.2",
+    "style-loader": "^1.2.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}

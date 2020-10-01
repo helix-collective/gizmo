@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gizmo</title>
+
+  <style>
+    #animation {
+      width: 690px;
+      height: 118px;
+      position: relative;
+    }
+
+    #animation svg,
+    #animation img {
+      position: absolute;
+      width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bodymovin usage example</h1>
+
+  <p>If everything is configured correctly, the illustration below will start moving soon:</p>
+
+  <div id="animation">
+    <img src="lottie-animations/4763-flying-paper-plane.svg" alt="">
+  </div>
+
+  <script>
+    (function (d, s, id) {
+      window.gizmoBodymovinAsyncInit = function () {
+        gizmo.widget.bodymovin.start().then(bodymovin => {
+          var container = document.getElementById("animation");
+
+          bodymovin.loadAnimation({
+            container: container,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'lottie-animations/4763-flying-paper-plane.json'
+          });
+        });
+      };
+
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = '/dist/bodymovin.loader.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'bodymovin-loader');
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Gizmo</title>
+</head>
+
+<body>
+  <h1>Combined usage example</h1>
+
+  <p>If everything is configured correctly, you should see two greetings below:</p>
+
+  <div id="gizmo-combined-widget-1"></div>
+  <hr>
+  <div id="gizmo-combined-widget-2"></div>
+
+  <script>
+    (function (d, s, id) {
+      window.gizmoCombinedAsyncInit = function () {
+        gizmo.widget.combined.start();
+      };
+
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+      js.src = '/dist/combined.loader.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'combined-loader');
+  </script>
+</body>
+
+</html>
