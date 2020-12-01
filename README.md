@@ -19,8 +19,8 @@ and visit http://localhost:5000 and http://localhost:5000/combined.
 
 At a high level, each widget has a `loader.js` file that will be included on
 the page. It uses the SDK utilities to load the JS and CSS files necessary for
-the widget, as well as registering the widget (`name`, `dependenciesCount` and
-`start` function). Only the SDK utilities that are used end up in the final
+the widget, as well as registering the widget (`name`, `dependenciesCount``start` function, 
+and optional `asyncInit` and `namespace`). Only the SDK utilities that are used end up in the final
 loader, eg. if a widget does not need any external CSS, the CSS utilities will
 not be included in the bundle, making it as minimal as possible.
 
@@ -39,6 +39,9 @@ demo widget.
 To create a new widget, copy the `demoWidget` folder in `src` and modify
 the files according to your needs.
 
+Or copy the `demoWidgetNamespaced` fold in `src` if you wish to set the namespace under which your
+widget will be placed. (The default namespace is `gizmo`)
+
 You will also need to add scripts to the `package.json` with details about how
 to build the widget and watch for changes during development. Here is a
 template, but please refer to the existing scripts for the demo widget for
@@ -55,3 +58,6 @@ working examples:
 
 After that, you can use `yarn build` and `yarn watch` directly to build
 and watch all widgets concurrently.
+
+## Publishing Gizmo
+

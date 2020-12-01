@@ -1,6 +1,6 @@
 {
   "name": "@helix-collective/gizmo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A widget loader.",
   "main": "dist/gizmo.js",
   "module": "src/sdk.js",
@@ -12,22 +12,32 @@
     "clean": "rm -rf dist/",
     "build:sdk": "webpack",
     "watch:sdk": "yarn run build:sdk --watch",
+
     "build:demo-loader": "webpack --config src/demoWidget/loader.webpack.config.js",
     "build:demo-widget": "webpack --config src/demoWidget/widget.webpack.config.js",
     "watch:demo-loader": "yarn run build:demo-loader --watch",
     "watch:demo-widget": "yarn run build:demo-widget --watch",
+
+    "build:demo-namespaced-loader": "webpack --config src/demoWidgetNamespaced/loader.webpack.config.js",
+    "build:demo-namespaced-widget": "webpack --config src/demoWidgetNamespaced/widget.webpack.config.js",
+    "watch:demo-namespaced-loader": "yarn run build:demo-namespaced-loader --watch",
+    "watch:demo-namespaced-widget": "yarn run build:demo-namespaced-widget --watch",
+
     "build:demo-react-loader": "webpack --config src/demoWidgetReact/loader.webpack.config.js",
     "build:demo-react-widget": "webpack --config src/demoWidgetReact/widget.webpack.config.js",
     "watch:demo-react-loader": "yarn run build:demo-react-loader --watch",
     "watch:demo-react-widget": "yarn run build:demo-react-widget --watch",
+
     "build:demo-react-alt-loader": "webpack --config src/demoWidgetReactAlt/loader.webpack.config.js",
     "build:demo-react-alt-widget": "webpack --config src/demoWidgetReactAlt/widget.webpack.config.js",
     "watch:demo-react-alt-loader": "yarn run build:demo-react-alt-loader --watch",
     "watch:demo-react-alt-widget": "yarn run build:demo-react-alt-widget --watch",
+
     "build:combined-loader": "webpack --config src/combinedWidget/loader.webpack.config.js",
     "build:combined-widget": "webpack --config src/combinedWidget/widget.webpack.config.js",
     "watch:combined-loader": "yarn run build:combined-loader --watch",
     "watch:combined-widget": "yarn run build:combined-widget --watch",
+
     "build:bodymovin-loader": "webpack --config src/bodymovin/loader.webpack.config.js",
     "watch:bodymovin-loader": "yarn run build:bodymovin-loader --watch",
     "build": "yarn run clean && run-p build:*",

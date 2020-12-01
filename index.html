@@ -16,6 +16,7 @@
   <!--
   Placeholder for the widget, anywhere on the page.
   -->
+  <h2>Demo Widget</h2>
   <div id="gizmo-demo-widget"></div>
 
   <!--
@@ -28,13 +29,21 @@
 
   <hr>
 
+  <h2>Demo react widget</h2>
   <div id="gizmo-demo-react-widget"></div>
   <div id="gizmo-demo-react-widget-2"></div>
 
   <hr>
 
+  <h2>Demo react Alt widget</h2>
   <div id="gizmo-demo-react-alt-widget"></div>
   <div id="gizmo-demo-react-alt-widget-2"></div>
+
+  <hr>
+
+  <h2>Demo Namespaced</h2>
+  <div id="gizmo-demo-namespaced-widget"></div>
+  <div id="gizmo-demo-namespaced-widget2"></div>
 
   <!-- Widget snippet -->
   <script>
@@ -88,6 +97,27 @@
       accidentally included on the page more than once.
       */
     })(document, 'script', 'demo-loader');
+  </script>
+
+  <!-- Demo namespaced snippet. This also includes a custom async callback defined in the loader -->
+  <script>
+    (function (d, s, id) {
+      window.demoNamespacedInit = function () {
+        ns.demo.widget.demoNamespaced.start();
+
+        ns.demo.widget.demoNamespaced.start({
+          containerId: 'gizmo-demo-namespaced-widget2',
+          name: 'gizmo'
+        });
+      };
+
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) { return; }
+      js = d.createElement(s); js.id = id;
+
+      js.src = '/dist/demo-namespaced.loader.js';
+      fjs.parentNode.insertBefore(js, fjs);
+    })(document, 'script', 'demo-namespaced');
   </script>
 
   <script>
