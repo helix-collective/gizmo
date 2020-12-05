@@ -61,3 +61,6 @@ and watch all widgets concurrently.
 
 ## Publishing Gizmo
 
+Ensure you are logged in to npm `npm login`
+
+Run `npm publish --access public`
